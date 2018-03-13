@@ -1,22 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">React를 시작해보자!</h1>
-        </header>
-        <p className="App-intro">
-            이거슨 진리다!<br />
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+          <Header title={this.props.headerTitle} />
+          <Content title={this.props.contentTitle} />
       </div>
     );
   }
 }
+
+class Header extends React.Component {
+    render() {
+        return (
+            <h1>{this.props.title}</h1>
+        );
+    }
+}
+
+class Content extends React.Component {
+    render() {
+        return (
+            <div>
+                <h2>{this.props.title}</h2>
+                <p>Hey!</p>
+            </div>
+        );
+    }
+}
+
+App.defaultProps = {
+    headerTitle : 'Hello World!!',
+    contentTitle : 'Default contentTitle'
+};
 
 export default App;
